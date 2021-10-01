@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block title %}Home Page{% endblock %}
+{% block content %}
+    <div class="mb-3">
+  <label for="exampleFormControlTextarea1" class="form-label pt-4 ">Add sentences to test it: </label>
+       <div class="container">
+            <form action="{{ url_for('analysis') }}" method="POST" id="addTXT">
+            <textarea name="RawText" class="form-control" id="exampleFormControlTextarea1" rows="6" placeholder="Type something"></textarea>
+            <input class="btn btn-info text-light mt-2" type="submit" name="" value="Submit">
+                <a href="{{ url_for("index") }}" type="button"  class="btn btn-info text-light mt-2">Reset</a>
+        </form>
+       </div>
+    </div>
+
+    <div>
+    <p>Choose an algorithm below: </p>
+    <button class="btn Word2Vec btn-outline-danger" type="submit">Word2Vec</button>
+    <button class="btn BERT btn-outline-danger" type="submit">BERT</button>
+    <button class="btn XLNET btn-outline-danger" type="submit">XLNET</button>
+</div>
+    <div class="pt-3">
+     <p> Accuracy:  </p>
+    <textarea class="form-control mb-1 " id="exampleFormControlTextarea1" rows="1" placeholder="Per Word2Vec "></textarea>
+    <textarea class="form-control mb-1" id="exampleFormControlTextarea1" rows="1" placeholder="Per BERT"></textarea>
+    <textarea class="form-control" id="exampleFormControlTextarea1" rows="1" placeholder="Per XLNET"></textarea>
+    </div>
+    <div class="d-grid gap-2">
+        <button class="btn btn-danger mt-3 pt-3" type="button">Result</button>
+</div>
+{% endblock %}
